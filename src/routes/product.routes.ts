@@ -3,6 +3,7 @@ import { ProductService } from '../services/product.service';
 import { ProductController } from '../controller/product.controller';
 import { body } from 'express-validator';
 import { HandleInputErrors } from '../middlewares/validateInput';
+import upload from '../middlewares/handleFile';
 
 export class ProductRouter {
 	static get routes(): Router {
@@ -12,6 +13,7 @@ export class ProductRouter {
 
 		router.post(
 			'/',
+			upload.single('image'),
 			body('name')
 				.notEmpty()
 				.withMessage('El nombre no puede ir vació')

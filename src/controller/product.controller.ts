@@ -15,8 +15,10 @@ export class ProductController {
 	};
 
 	createProduct = (req: Request, res: Response) => {
+		const { body } = req;
+		body.image = req.file;
 		this.productService
-			.createProduct(req.body)
+			.createProduct(body)
 			.then(product => res.status(201).json(product))
 			.catch(error => this.handleError(error, res));
 	};

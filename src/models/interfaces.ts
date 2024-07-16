@@ -3,4 +3,5 @@ export type Product = {
 	available: boolean;
 	price: number;
 	description: string;
+	image: Express.Multer.File;
 };
