@@ -1,12 +1,13 @@
 import { Router } from 'express';
-import { ProductRouter } from './product.routes';
+import { AnimalRouter } from './animal.routes';
 
 export class AppRoutes {
 	static get routes(): Router {
 		const router = Router();
 
 		// Definir las rutas
-		router.use('/products', ProductRouter.routes);
+		router.use('/animal', AnimalRouter.routes);
+
 		return router;
 	}
 }
